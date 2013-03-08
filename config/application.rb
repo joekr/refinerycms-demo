@@ -53,6 +53,12 @@ module BlogArticle
     # Enable the asset pipeline
     config.assets.enabled = true
 
+    # Auto-load API and its subdirectories
+    config.paths.add "app/api", :glob => "**/*.rb"
+    config.autoload_paths += Dir["#{Rails.root}/app/api/*"]    
+    # config.autoload_paths += %W(#{config.root}/lib)
+    # config.autoload_paths += Dir["#{config.root}/lib/**/"]
+
     # Version of your assets, change this if you want to expire all your assets
     config.assets.version = '1.0'
   end
